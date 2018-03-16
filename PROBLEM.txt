@@ -9,7 +9,7 @@ Reproduktion:
      $> cp -r ./dist/* ./fake-server/www.domain.tld/
 
   3. Server starten
-     $> php -D 127.0.0.1:8080 -t ./server/www.domain.tld/public/
+     $> php -S 127.0.0.1:8080 -t ./fake-server/www.domain.tld/public/
 
   4. Im Browser: http://localhost:8080/
 

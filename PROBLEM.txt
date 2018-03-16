@@ -1,0 +1,27 @@
+Das Problem ist, dass der composer.extra.typo3/cms.web-dir 'dist/' enthält, was auf dem server nicht existiert.
+
+Reproduktion:
+
+  1. Installieren
+     $> composer install
+
+  2. Fake Deployment nach fake-server/www.domain.tld/
+     $> cp -r ./dist/* ./fake-server/www.domain.tld/
+
+  3. Server starten
+     $> php -D 127.0.0.1:8080 -t ./server/www.domain.tld/public/
+
+  4. Im Browser: http://localhost:8080/
+
+Workaround/Fix:
+
+  Symlink auf dem Server anlegen:
+     $> cd ./fake-server; ln -s www.domain.tld dist
+
+  Symlink wieder entfernen
+     $> rm -rf ./fake-server/dist
+
+Analyse:
+
+  Dateien mit String 'dist/' finden:
+     $> ./

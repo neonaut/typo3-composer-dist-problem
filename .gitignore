@@ -1,0 +1,3 @@
+dist/
+fake-server/
+!fake-server/.keep
